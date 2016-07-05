@@ -285,7 +285,8 @@ function updatePositions() {
   // moved these variables out of the for loop since they are constants.  I also
   // changed document.querySelectorAll to document.getElementsByClassName to increase efficiency.
 
-  var items = document.getElementsByClassName('.mover');
+/*  var items = document.getElementsByClassName('.mover');*/
+  var items = document.querySelectorAll('.mover');
   var i = 0;
   var sine = (document.body.scrollTop / 1250);
   
@@ -306,7 +307,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function () {
 	var cols = 8;
 	var s = 256;
-	for (var i = 0; i < 40; i++) {
+	for (var i = 0; i < 50; i++) {
 		var elem = document.createElement('img');
 		elem.className = 'mover';
 		elem.src = "images/pizza.png";
