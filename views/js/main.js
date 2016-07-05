@@ -279,15 +279,21 @@ var cols = screen.width/250;
 var pizzanum = rows * cols;
 
 function updatePositions() {
-	frame++;
-	window.performance.mark("mark_start_frame");
-	var items = document.getElementsByClassName('mover');
-	var i = 0;
-	var sine = (document.body.scrollTop / 1250);
-	for (; i < pizzanum; i++) {
-		var phase = Math.sin(sine + (i % 5));
-		items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-	}
+  frame++;
+  window.performance.mark("mark_start_frame");
+  
+  // moved these variables out of the for loop since they are constants.  I also
+  // changed document.querySelectorAll to document.getElementsByClassName to increase efficiency.
+
+  var items = document.getElementsByClassName('mover');
+  var i = 0;
+  var sine = (document.body.scrollTop / 1250);
+  
+  //I replaced items.length with the number of pizzas generated because it stays constant.
+  for (; i < pizzanum; i++) {
+    var phase = Math.sin(sine + (i % 5));
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  }
 	window.performance.mark("mark_end_frame");
 	window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
 	if (frame % 10 === 0) {
