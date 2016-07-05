@@ -253,18 +253,18 @@ Pulled unneeded assignments out of loop
     for (var pizzaIndex = 0; pizzaIndex < 100; pizzaIndex++) {
       randomPizzas[pizzaIndex].style.width = newwidth + "%";
     }
+  }
 
 */
 
 
 	  
-  }
 
 	changePizzaSizes(size);
 	window.performance.mark("mark_end_resize");
 	window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
 	var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
-	console.log("Time to resize pizzas: " + timeToResize[timeToResize.length - 1].duration + "ms");
+	console.log("Time to resize pizzas: " + timeToResize[timeToResize.length - 1].duration + "ms")
 };
 window.performance.mark("mark_start_generating");
 for (var i = 2; i < 100; i++) {
