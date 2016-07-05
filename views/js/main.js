@@ -285,7 +285,7 @@ function updatePositions() {
   // moved these variables out of the for loop since they are constants.  I also
   // changed document.querySelectorAll to document.getElementsByClassName to increase efficiency.
 
-  var items = document.getElementsByClassName('mover');
+  var items = document.getElementsByClassName('.mover');
   var i = 0;
   var sine = (document.body.scrollTop / 1250);
   
