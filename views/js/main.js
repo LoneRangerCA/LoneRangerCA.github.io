@@ -293,6 +293,7 @@ function updatePositions() {
   //I replaced items.length with the number of pizzas generated because it stays constant.
   for (; i < pizzanum; i++) {
     var phase = Math.sin(sine + (i % 5));
+    console.log("*** " + phase + " " + pizzanum + " " + items);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 	window.performance.mark("mark_end_frame");
