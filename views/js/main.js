@@ -213,20 +213,28 @@ var resizePizzas = function (size) {
 
 /*Alters size of on screen pizzas based on slider element*/
 
-	function changePizzaSizes(size) {
+function changePizzaSizes(size) {
+     var container = document.getElementsByClassName('randomPizzaContainer');
+     var dx = determineDx(container[i], size);
+     var newwidth = (container[i].offsetWidth + dx) + 'px';
+     for (i = 0; i < container.length; i++) {
+         container[i].style.width = newwidth;
+     }
+ }
+
+
+
 /*
+	function changePizzaSizes(size) {
+
 		for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
 			var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
 			var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
 			document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
 		}
 	}
-
-*/
-
-/*
 Pulled unneeded assignments out of loop
-*/
+
       switch(size) {
           case "1":
             newwidth = 25;
@@ -240,12 +248,16 @@ Pulled unneeded assignments out of loop
           default:
             console.log("bug in sizeSwitcher");
       }
-	  
     var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
     
     for (var pizzaIndex = 0; pizzaIndex < 100; pizzaIndex++) {
       randomPizzas[pizzaIndex].style.width = newwidth + "%";
     }
+
+*/
+
+
+	  
   }
 
 	changePizzaSizes(size);
@@ -285,8 +297,7 @@ function updatePositions() {
   // moved these variables out of the for loop since they are constants.  I also
   // changed document.querySelectorAll to document.getElementsByClassName to increase efficiency.
 
-/*  var items = document.getElementsByClassName('.mover');*/
-  var window.items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
   var i = 0;
   var sine = (document.body.scrollTop / 1250);
   
