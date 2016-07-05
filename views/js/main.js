@@ -206,12 +206,46 @@ var resizePizzas = function (size) {
 	}
 
 	function changePizzaSizes(size) {
+/*
 		for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
 			var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
 			var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
 			document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
 		}
 	}
+
+*/
+
+
+	  switch(size) {
+          case "1":
+            newwidth = 25;
+            break;
+          case "2":
+            newwidth = 33.33;
+            break;
+          case "3":
+            newwidth = 50;
+            break;
+          default:
+            console.log("bug in sizeSwitcher");
+      }
+	  
+	  
+    //I changed document.querySelectorAll to document.getElementsByClassName to increase efficiency.
+    //Then, I put it into a variable so the for loop wouldn't repeat itself.
+    var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
+    
+    for (var i = 0; i < 100; i++) {
+      randomPizzas[i].style.width = newwidth + "%";
+    }
+  }
+
+
+
+
+
+
 	changePizzaSizes(size);
 	window.performance.mark("mark_end_resize");
 	window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
