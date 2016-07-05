@@ -294,6 +294,7 @@ function updatePositions() {
   for (; i < pizzanum; i++) {
     var phase = Math.sin(sine + (i % 5));
     console.log("*** " + phase + " " + pizzanum + " " + items);
+debugger
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 	window.performance.mark("mark_end_frame");
