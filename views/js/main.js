@@ -287,7 +287,6 @@ function updatePositions() {
 	for (; i < pizzanum; i++) {
 		var phase = Math.sin(sine + (i % 5));
 		items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-console.log("***  " + phase, + " " document.body.scrollTop/1250);
 	}
 	window.performance.mark("mark_end_frame");
 	window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
