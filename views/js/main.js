@@ -215,8 +215,6 @@ var resizePizzas = function (size) {
 	}
 
 */
-
-
 	  switch(size) {
           case "1":
             newwidth = 25;
@@ -232,19 +230,12 @@ var resizePizzas = function (size) {
       }
 	  
 	  
-    //I changed document.querySelectorAll to document.getElementsByClassName to increase efficiency.
-    //Then, I put it into a variable so the for loop wouldn't repeat itself.
     var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
     
-    for (var i = 0; i < 100; i++) {
-      randomPizzas[i].style.width = newwidth + "%";
+    for (var pizzaIndex = 0; pizzaIndex < 100; pizzaIndex++) {
+      randomPizzas[pizzaIndex].style.width = newwidth + "%";
     }
   }
-
-
-
-
-
 
 	changePizzaSizes(size);
 	window.performance.mark("mark_end_resize");
