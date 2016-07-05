@@ -286,7 +286,7 @@ function updatePositions() {
   // changed document.querySelectorAll to document.getElementsByClassName to increase efficiency.
 
 /*  var items = document.getElementsByClassName('.mover');*/
-  var windows.items = document.querySelectorAll('.mover');
+  var window.items = document.querySelectorAll('.mover');
   var i = 0;
   var sine = (document.body.scrollTop / 1250);
   
