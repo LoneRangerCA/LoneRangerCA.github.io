@@ -509,7 +509,7 @@ console.log("4");
   for (var i = 0; i < items.length; i++) {
 console.log("5");
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-console.log("6");
+console.log("6 " + items.length + " " + i);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
 console.log("7");
   }
