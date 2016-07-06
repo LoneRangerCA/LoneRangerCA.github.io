@@ -376,16 +376,15 @@ var pizzaElementGenerator = function(i) {
   pizzaContainer.style.width = "33.33%";
   pizzaContainer.style.height = "325px";
   pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
-  pizzaImageContainer.classList.add("col-md-6");
+  pizzaImageContainer.style.width="35%";
 
-  // load the compresss image
   pizzaImage.src = "images/pizza.png";
   pizzaImage.classList.add("img-responsive");
   pizzaImageContainer.appendChild(pizzaImage);
   pizzaContainer.appendChild(pizzaImageContainer);
 
 
-  pizzaDescriptionContainer.classList.add("col-md-6");
+  pizzaDescriptionContainer.style.width="65%";
 
   pizzaName = document.createElement("h4");
   pizzaName.innerHTML = randomName();
@@ -449,31 +448,11 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
-   // moved variables with a constant value out of the for loop and kept
-  // all of the pizza sizes in percentage values instead of switching between percents and pixels
-  // and avoid a forced synchronous layout.
   function changePizzaSizes(size) {
-	  switch(size) {
-          case "1":
-            newwidth = 25;
-            break;
-          case "2":
-            newwidth = 33.33;
-            break;
-          case "3":
-            newwidth = 50;
-            break;
-          default:
-            console.log("bug in sizeSwitcher");
-      }
-	  
-	  
-    //I changed document.querySelectorAll to document.getElementsByClassName to increase efficiency.
-    //Then, I put it into a variable so the for loop wouldn't repeat itself.
-    var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
-    
-    for (var i = 0; i < 100; i++) {
-      randomPizzas[i].style.width = newwidth + "%";
+    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     }
   }
 
@@ -517,28 +496,14 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
-
-// Only the number of background pizzas required to fill the screen are generated, using
-// the dimensions of the screen.
-var rows = screen.height/225;
-var cols = screen.width/250;
-var pizzanum = rows * cols;
-
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-  
-  // moved these variables out of the for loop since they are constants.  I also
-  // changed document.querySelectorAll to document.getElementsByClassName to increase efficiency.
 
-  var items = document.getElementsByClassName('mover');
-  var i = 0;
-  var sine = (document.body.scrollTop / 1250);
-  
-  //I replaced items.length with the number of pizzas generated because it stays constant.
-  for (; i < pizzanum; i++) {
-    var phase = Math.sin(sine + (i % 5));
+  var items = document.querySelectorAll('.mover');
+  for (var i = 0; i < items.length; i++) {
+    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -552,22 +517,20 @@ function updatePositions() {
   }
 }
 
-
-
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
+
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  var numberOfPizzas = Math.floor((screen.height * cols) / s);
-  for (var i = 0; i < numberOfPizzas; i++) {
+  for (var i = 0; i < 200; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-	elem.basicLeft = (i % cols) * s;
+    elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
