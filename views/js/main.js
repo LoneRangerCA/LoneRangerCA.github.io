@@ -522,7 +522,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
 var i = 0;
+console.log(i);
   for (i = 0; i < 50; i++) {
+console.log(i);
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
