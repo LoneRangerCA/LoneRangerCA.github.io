@@ -448,11 +448,31 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
+   // moved variables with a constant value out of the for loop and kept
+  // all of the pizza sizes in percentage values instead of switching between percents and pixels
+  // and avoid a forced synchronous layout.
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+	  switch(size) {
+          case "1":
+            newwidth = 25;
+            break;
+          case "2":
+            newwidth = 33.33;
+            break;
+          case "3":
+            newwidth = 50;
+            break;
+          default:
+            console.log("bug in sizeSwitcher");
+      }
+	  
+	  
+    //I changed document.querySelectorAll to document.getElementsByClassName to increase efficiency.
+    //Then, I put it into a variable so the for loop wouldn't repeat itself.
+    var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
+    
+    for (var i = 0; i < 100; i++) {
+      randomPizzas[i].style.width = newwidth + "%";
     }
   }
 
