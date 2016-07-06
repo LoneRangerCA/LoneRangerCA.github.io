@@ -535,7 +535,7 @@ function updatePositions() {
   var items = document.getElementsByClassName('mover');
   var i = 0;
   var sine = (document.body.scrollTop / 1250);
-
+  
   //I replaced items.length with the number of pizzas generated because it stays constant.
   for (; i < pizzanum; i++) {
     var phase = Math.sin(sine + (i % 5));
@@ -561,7 +561,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   var numberOfPizzas = Math.floor((screen.height * cols) / s);
-console.log(numberOfPizzas + " " + screen.height + " " + cols + " " + s);
   for (var i = 0; i < numberOfPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
