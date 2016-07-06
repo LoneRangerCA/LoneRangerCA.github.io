@@ -447,10 +447,9 @@ var resizePizzas = function(size) {
     return dx;
   }
 
-  // Iterates through pizza elements on the page and changes their widths
-   // moved variables with a constant value out of the for loop and kept
-  // all of the pizza sizes in percentage values instead of switching between percents and pixels
-  // and avoid a forced synchronous layout.
+
+/*Moved constants out of loop and changed pizza sizes to percents*/
+
   function changePizzaSizes(size) {
 	  switch(size) {
           case "1":
@@ -521,6 +520,8 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
+/*Replaced querySelectorAll with getElementsByClassName*/
+
 /*  var items = document.querySelectorAll('.mover');*/
   var items = document.getElementsByClassName('mover');
   for (var i = 0; i < items.length; i++) {
@@ -545,6 +546,9 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+
+/*Reduced moving pizzas from 200 to 50*/
+
   for (var i = 0; i < 50; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
