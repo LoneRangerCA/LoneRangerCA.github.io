@@ -498,15 +498,22 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
-debugger
+console.log("1");
   frame++;
+console.log("2");
   window.performance.mark("mark_start_frame");
+console.log("3");
 
   var items = document.querySelectorAll('.mover');
+console.log("4");
   for (var i = 0; i < items.length; i++) {
+console.log("5");
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+console.log("6");
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+console.log("7");
   }
+console.log("8");
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
