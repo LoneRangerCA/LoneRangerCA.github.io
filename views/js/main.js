@@ -535,7 +535,7 @@ function updatePositions() {
   var items = document.getElementsByClassName('mover');
   var i = 0;
   var sine = (document.body.scrollTop / 1250);
-  
+debugger
   //I replaced items.length with the number of pizzas generated because it stays constant.
   for (; i < pizzanum; i++) {
     var phase = Math.sin(sine + (i % 5));
