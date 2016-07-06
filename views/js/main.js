@@ -215,13 +215,13 @@ var resizePizzas = function (size) {
 /*Alters size of on screen pizzas based on slider element*/
 
 function changePizzaSizes(size) {
-     var container = document.getElementsByClassName('randomPizzaContainer');
-     var dx = determineDx(container[i], size);
-     var newwidth = (container[i].offsetWidth + dx) + 'px';
-     for (i = 0; i < container.length; i++) {
-         container[i].style.width = newwidth;
-     }
- }
+   var container = document.getElementsByClassName('randomPizzaContainer');
+   var dx = determineDx(container[i], size);
+   var newwidth = (container[i].offsetWidth + dx) + 'px';
+   for (i = 0; i < container.length; i++) {
+       container[i].style.width = newwidth;
+   }
+}
 
 
 
@@ -332,4 +332,4 @@ document.addEventListener('DOMContentLoaded', function () {
 		document.querySelector("#movingPizzas1").appendChild(elem);
 	}
 	updatePositions();
-});
+};
