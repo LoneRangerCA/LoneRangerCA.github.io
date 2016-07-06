@@ -505,11 +505,11 @@ console.log("2");
 console.log("3");
 
   var items = document.querySelectorAll('.mover');
-console.log("4");
+console.log("4 " + items.length + " " + i);
   for (var i = 0; i < items.length; i++) {
 console.log("5");
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-console.log("6 " + items.length + " " + i);
+console.log("6");
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
 console.log("7");
   }
