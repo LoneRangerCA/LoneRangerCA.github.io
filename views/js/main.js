@@ -379,7 +379,7 @@ var pizzaElementGenerator = function(i) {
   pizzaImageContainer.classList.add("col-md-6");
 
   // load the compresss image
-  pizzaImage.src = "compressimg/pizza-min.png";
+  pizzaImage.src = "compressimg/pizza.png";
   pizzaImage.classList.add("img-responsive");
   pizzaImageContainer.appendChild(pizzaImage);
   pizzaContainer.appendChild(pizzaImageContainer);
@@ -465,7 +465,7 @@ var resizePizzas = function(size) {
             break;
           default:
             console.log("bug in sizeSwitcher");
-      }  
+      }
 	  
 	  
     //I changed document.querySelectorAll to document.getElementsByClassName to increase efficiency.
@@ -519,7 +519,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 
 // Only the number of background pizzas required to fill the screen are generated, using
-// the dimensions of the screen. 
+// the dimensions of the screen.
 var rows = screen.height/225;
 var cols = screen.width/250;
 var pizzanum = rows * cols;
@@ -564,7 +564,7 @@ document.addEventListener('DOMContentLoaded', function() {
   for (var i = 0; i < numberOfPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
-    elem.src = "compressimg/pizza-min.png";
+    elem.src = "compressimg/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
 	elem.basicLeft = (i % cols) * s;
