@@ -259,7 +259,7 @@ Pulled unneeded assignments out of loop
 
 
 	  
-
+/*
 	changePizzaSizes(size);
 	window.performance.mark("mark_end_resize");
 	window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
@@ -275,6 +275,8 @@ window.performance.mark("mark_end_generating");
 window.performance.measure("measure_pizza_generation", "mark_start_generating", "mark_end_generating");
 var timeToGenerate = window.performance.getEntriesByName("measure_pizza_generation");
 console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "ms");
+
+*/
 var frame = 0;
 
 function logAverageFrame(times) {
