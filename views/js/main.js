@@ -504,7 +504,7 @@ console.log("2");
   window.performance.mark("mark_start_frame");
 console.log("3");
 
-  var items = document.querySelectorAll('.mover');
+  var items = document.querySelectorAll("mover");
 console.log("4 " + items.length + " " + i);
   for (var i = 0; i < items.length; i++) {
 console.log("5");
