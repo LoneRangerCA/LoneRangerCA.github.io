@@ -205,6 +205,8 @@ var resizePizzas = function(size) {
         return dx;
     }
 
+/*Take constants out of for loop to speed things up a tad*/
+
     function changePizzaSizes(size) {
         switch (size) {
             case "1":
@@ -269,6 +271,9 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
     var cols = 8;
     var s = 256;
+
+/*200 pizzas is way too many*/
+
     for (var i = 0; i < 50; i++) {
         var elem = document.createElement('img');
         elem.className = 'mover';
