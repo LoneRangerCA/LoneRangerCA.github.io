@@ -200,11 +200,9 @@ console.log("1 size = " + size);
                 default:
                     console.log("bug in sizeSwitcher");
             }
-console.log("2 size = " + size);
         }
         var newSize = sizeSwitcher(size);
         var dx = (newSize - oldSize) * windowWidth;
-console.log("3 dx = " + dx)
         return dx;
     }
 
@@ -224,8 +222,6 @@ console.log("3 dx = " + dx)
             default:
                 console.log("bug in sizeSwitcher");
         }
-console.log("4 size = " + size);
-console.log("5 newwidth = " + newwidth);
 
         var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
         for (var i = 0; i < 100; i++) {
@@ -238,16 +234,16 @@ console.log("5 newwidth = " + newwidth);
     var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
     console.log("Time to resize pizzas: " + timeToResize[timeToResize.length - 1].duration + "ms");
 };
-window.performance.mark("mark_start_generating");
-for (var i = 2; i < 100; i++) {
-    var pizzasDiv = document.getElementById("randomPizzas");
-    pizzasDiv.appendChild(pizzaElementGenerator(i));
-}
-window.performance.mark("mark_end_generating");
-window.performance.measure("measure_pizza_generation", "mark_start_generating", "mark_end_generating");
-var timeToGenerate = window.performance.getEntriesByName("measure_pizza_generation");
-console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "ms");
-var frame = 0;
+  window.performance.mark("mark_start_generating");
+    for (var i = 2; i < 100; i++) {
+        var pizzasDiv = document.getElementById("randomPizzas");
+        pizzasDiv.appendChild(pizzaElementGenerator(i));
+    }
+  window.performance.mark("mark_end_generating");
+  window.performance.measure("measure_pizza_generation", "mark_start_generating", "mark_end_generating");
+  var timeToGenerate = window.performance.getEntriesByName("measure_pizza_generation");
+  console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "ms");
+  var frame = 0;
 
 function logAverageFrame(times) {
     var numberOfEntries = times.length;
