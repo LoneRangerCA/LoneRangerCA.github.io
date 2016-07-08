@@ -180,7 +180,6 @@ var resizePizzas = function(size) {
             default:
                 console.log("bug in changeSliderLabel");
         }
-console.log("1 size = " + size);
     }
     changeSliderLabel(size);
 
